@@ -7,7 +7,9 @@ English | [中文](README_ZH.md)
 ---
 
 In 1994, `robots.txt` told web crawlers what **not** to do.
+
 In 2024, `llms.txt` told LLMs what content to **read**.
+
 In 2026, `skills.txt` (or `agents.txt`) teaches AI agents how to **act**.
 
 The **Web Skills Protocol (WSP)** is an open standard for websites to publish skill files that teach AI agents how to interact with the site — its APIs, workflows, and capabilities — instead of scraping HTML and guessing.

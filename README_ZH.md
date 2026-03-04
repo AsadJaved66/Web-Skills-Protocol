@@ -7,7 +7,9 @@
 ---
 
 1994 年，`robots.txt` 告诉爬虫**不要**做什么。
+
 2024 年，`llms.txt` 告诉大语言模型该**读**什么内容。
+
 2026 年，`skills.txt`（或 `agents.txt`）教 AI 智能体如何去**操作**。
 
 **Web Skills Protocol (WSP)** 是一个开放标准，让网站发布技能文件（skill files），教 AI 智能体如何与网站交互——包括 API 调用、操作流程和功能说明——而不是让 AI 去抓取 HTML 猜测。
