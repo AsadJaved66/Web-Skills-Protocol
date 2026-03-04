@@ -66,7 +66,9 @@ Add WSP auto-discovery skill to your AI agent — one command:
 **OpenClaw**
 
 ```bash
-openclaw install web-skills-protocol
+mkdir -p ~/.openclaw/workspace/skills/web-skills-protocol && curl -sL \
+  https://raw.githubusercontent.com/0xtresser/Web-Skills-Protocol/main/skill/SKILL.md \
+  -o ~/.openclaw/workspace/skills/web-skills-protocol/SKILL.md
 ```
 
 **OpenCode**

@@ -66,7 +66,9 @@ skills.txt (2026)  →  「亲爱的智能体，这是调用 API 的方法」   
 **OpenClaw**
 
 ```bash
-openclaw install web-skills-protocol
+mkdir -p ~/.openclaw/workspace/skills/web-skills-protocol && curl -sL \
+  https://raw.githubusercontent.com/0xtresser/Web-Skills-Protocol/main/skill/SKILL.md \
+  -o ~/.openclaw/workspace/skills/web-skills-protocol/SKILL.md
 ```
 
 **OpenCode**
